@@ -1,4 +1,22 @@
 {% extends "base.html" %}
-{% block title %}detail{% endblock title %}
-its detail
-{% block content %}{% endblock content %}
+
+{% block title %}Detail{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-5 mb-4">Note Detail</h1>
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">{{ note.title }}</h5>
+            <p class="card-text">{{ note.description }}</p>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">Created at: {{ note.created_at }}</small>
+            <div class="btn-group ms-auto" role="group" aria-label="Note Actions">
+                <a href="{% url 'note_update' note.pk %}" class="btn btn-warning"><i class="fas fa-edit"></i> Update</a>
+                <a href="{% url 'note_delete' note.pk %}" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
