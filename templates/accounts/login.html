@@ -13,6 +13,7 @@ Login Page
             <form action="" method="POST">
                 {% csrf_token %}
                 {{form|crispy}}
+                <a href="{% url 'social:begin' 'github' %}" class="btn btn-link btn-lg active btn-block">Sign in with GitHub</a>
 
                 <button type="submit" class="btn btn-primary mt-3">Submit</button>
             </form>
